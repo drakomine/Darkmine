@@ -1,0 +1,734 @@
+:root {
+            --primary-accent: #6E88F0; /* A richer, more vibrant blue/purple */
+            --primary-accent-dark: #586EC8; /* Darker for hover */
+            --bg-dark-main: #121212; /* Even darker, almost black */
+            --bg-dark-card: #1A1A1A; /* Slightly lighter for cards */
+            --text-light: #EDEDED;
+            --text-muted: #B0B0B0;
+            --border-subtle: #2C2C2C;
+            --shadow-elevation-low: rgba(0, 0, 0, 0.4);
+            --shadow-elevation-medium: rgba(0, 0, 0, 0.6);
+            --shadow-elevation-high: rgba(0, 0, 0, 0.8);
+
+            --font-heading: 'Montserrat', sans-serif;
+            --font-body: 'Open Sans', sans-serif;
+            --font-code: 'Fira Code', monospace;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-dark-main);
+            color: var(--text-light);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        .container {
+            max-width: 1400px; /* Even wider container */
+            margin: 0 auto;
+            background-color: var(--bg-dark-main);
+            box-shadow: 0 0 80px var(--shadow-elevation-high);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        /* --- Navbar --- */
+        nav {
+            background-color: var(--bg-dark-card);
+            padding: 25px 0; /* More padding */
+            text-align: center;
+            border-bottom: 1px solid var(--border-subtle);
+            box-shadow: 0 4px 15px var(--shadow-elevation-low); /* Softer shadow */
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            font-family: var(--font-heading);
+            color: var(--text-light);
+            text-decoration: none;
+            margin: 0 30px; /* More spacing */
+            font-size: 1em; /* Slightly larger */
+            font-weight: 600;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+            letter-spacing: 0.8px; /* More distinct letter spacing */
+            padding: 8px 0;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -8px; /* Move accent line down */
+            transform: translateX(-50%) scaleX(0);
+            width: 100%;
+            height: 3px; /* Thicker line */
+            background-color: var(--primary-accent);
+            border-radius: 2px;
+            transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smoother animation */
+        }
+
+        nav a:hover::after {
+            transform: translateX(-50%) scaleX(1);
+        }
+
+        nav a:hover {
+            color: var(--primary-accent);
+            text-shadow: 0 0 10px rgba(110, 136, 240, 0.5); /* Subtle glow */
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            position: relative;
+            height: 85vh; /* Taller hero */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            /* Deeper, more complex gradient for premium feel */
+            background: linear-gradient(135deg, rgba(20,20,20,0.9), rgba(30,30,30,0.9)), 
+                        linear-gradient(to bottom, var(--bg-dark-main) 0%, var(--bg-dark-card) 100%);
+            border-bottom: 8px solid var(--primary-accent); /* Thicker border */
+            box-shadow: inset 0 -15px 40px rgba(0, 0, 0, 0.7); /* Inner shadow for depth */
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 0 30px; /* More padding */
+            background: rgba(0,0,0,0.4); /* Slight overlay for readability */
+            padding: 40px 60px;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px var(--shadow-elevation-high); /* Stronger shadow */
+            backdrop-filter: blur(3px); /* Subtle blur for modern touch */
+            -webkit-backdrop-filter: blur(3px);
+        }
+
+        .hero h1 {
+            font-family: var(--font-heading);
+            font-size: 6.5em; /* Even larger, more dominant */
+            font-weight: 800;
+            margin-bottom: 25px;
+            letter-spacing: 3px; /* Increased letter spacing */
+            text-shadow: 6px 6px 15px rgba(0, 0, 0, 0.8), 0 0 30px var(--primary-accent); /* Deeper shadow with accent glow */
+            line-height: 1;
+        }
+
+        .hero p {
+            font-size: 1.8em; /* Larger tagline */
+            font-weight: 300; /* Lighter font weight for contrast */
+            max-width: 1000px; /* Wider text area */
+            margin: 0 auto 60px; /* More margin below */
+            color: var(--text-light);
+            opacity: 0.95;
+            letter-spacing: 0.5px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 30px; /* More space between buttons */
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(to right, var(--primary-accent), var(--primary-accent-dark)); /* Gradient button */
+            color: white;
+            padding: 20px 50px; /* More padding */
+            border-radius: 10px; /* More rounded */
+            text-decoration: none;
+            font-family: var(--font-heading);
+            font-size: 1.35em; /* Larger text */
+            font-weight: 700;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smoother animation */
+            border: none;
+            box-shadow: 0 10px 25px var(--shadow-elevation-medium); /* Deeper shadow */
+            letter-spacing: 1.5px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden; /* For hover effect */
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.15); /* Subtle overlay on hover */
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .cta-button:hover::before {
+            left: 0;
+        }
+
+        .cta-button:hover {
+            background: linear-gradient(to right, var(--primary-accent-dark), var(--primary-accent)); /* Invert gradient on hover */
+            transform: translateY(-8px); /* Deeper lift */
+            box-shadow: 0 15px 35px var(--shadow-elevation-high); /* More intense shadow */
+        }
+
+        .server-ip-display {
+            background-color: var(--bg-dark-card);
+            color: var(--primary-accent);
+            padding: 18px 35px; /* More padding */
+            border-radius: 8px;
+            font-family: var(--font-code);
+            font-size: 1.4em; /* Larger text */
+            font-weight: 600;
+            border: 2px solid var(--primary-accent); /* Thicker border */
+            box-shadow: 0 0 20px rgba(110, 136, 240, 0.7), inset 0 0 10px rgba(110, 136, 240, 0.3); /* Stronger glow */
+            display: inline-flex;
+            align-items: center;
+            gap: 12px; /* More gap */
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .server-ip-display::after {
+            content: 'Click to Copy';
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8em;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+            white-space: nowrap;
+        }
+        .server-ip-display:hover::after {
+            opacity: 1;
+        }
+
+        .server-ip-display .copy-icon {
+            width: 24px; /* Larger icon */
+            height: 24px;
+            background-color: var(--primary-accent);
+            -webkit-mask: url('https://www.svgrepo.com/show/496032/copy-01.svg') no-repeat center / contain;
+            mask: url('https://www.svgrepo.com/show/496032/copy-01.svg') no-repeat center / contain;
+            transition: background-color 0.3s ease;
+        }
+        .server-ip-display .copy-icon.copied {
+            background-color: #38C25B; /* Brighter green */
+            -webkit-mask: url('https://www.svgrepo.com/show/496033/check-01.svg') no-repeat center / contain;
+            mask: url('https://www.svgrepo.com/show/496033/check-01.svg') no-repeat center / contain;
+        }
+
+        /* --- Section Styling --- */
+        .section-padding {
+            padding: 100px 50px; /* More generous padding */
+            background-color: var(--bg-dark-main);
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            color: var(--text-light);
+            font-size: 3.8em; /* Larger title */
+            font-weight: 800; /* Bolder */
+            text-align: center;
+            margin-bottom: 70px; /* More space below */
+            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5), 0 0 15px rgba(110, 136, 240, 0.3); /* Deeper shadow with subtle glow */
+            position: relative;
+            padding-bottom: 25px;
+            letter-spacing: 1.5px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 180px; /* Wider line */
+            height: 5px; /* Thicker line */
+            background-color: var(--primary-accent);
+            border-radius: 3px;
+        }
+
+        /* --- Key Experiences (Features) Grid --- */
+        .experiences-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Larger min-width */
+            gap: 45px; /* More spacing */
+            margin-top: 50px;
+        }
+
+        .experience-card {
+            background-color: var(--bg-dark-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 15px; /* More rounded */
+            box-shadow: 0 12px 30px var(--shadow-elevation-medium), inset 0 0 15px rgba(0, 0, 0, 0.2); /* Deeper, internal shadow */
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s ease-in-out;
+            padding: 40px; /* More padding */
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-top: 5px solid var(--primary-accent); /* Stronger top border */
+        }
+
+        .experience-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(to right, var(--primary-accent), var(--primary-accent-dark));
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+
+        .experience-card:hover {
+            transform: translateY(-15px); /* Deeper lift */
+            box-shadow: 0 25px 50px var(--shadow-elevation-high), inset 0 0 20px rgba(0, 0, 0, 0.3);
+            border-color: var(--primary-accent); /* Border brightens on hover */
+        }
+
+        .experience-card .icon {
+            width: 90px; /* Larger icon container */
+            height: 90px;
+            background-color: var(--primary-accent);
+            margin: 0 auto 25px; /* More margin */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-family: var(--font-heading); /* Use heading font for icons if text */
+            font-size: 3.5em; /* Larger emoji/text */
+            font-weight: 600; /* Bolder */
+            color: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* Subtle shadow on icon */
+            opacity: 0.9;
+            transition: all 0.3s ease;
+        }
+        .experience-card:hover .icon {
+            opacity: 1;
+            background-color: var(--primary-accent-dark);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+        }
+
+        .experience-card h3 {
+            font-family: var(--font-heading);
+            color: var(--text-light);
+            font-size: 1.8em; /* Larger heading */
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: 0.8px;
+        }
+
+        .experience-card p {
+            font-size: 1.1em; /* Slightly larger paragraph */
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* --- Commands List (more subdued but refined) --- */
+        .commands-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); /* Wider columns */
+            gap: 35px; /* More spacing */
+            margin-top: 50px;
+        }
+
+        .command-category-panel {
+            background-color: var(--bg-dark-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            box-shadow: 0 8px 20px var(--shadow-elevation-low);
+            padding: 35px; /* More padding */
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .command-category-panel:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px var(--shadow-elevation-medium);
+        }
+
+        .command-category-panel h4 {
+            font-family: var(--font-heading);
+            color: var(--primary-accent);
+            font-size: 1.4em; /* Larger */
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 30px; /* More space */
+            border-bottom: 2px dashed var(--border-subtle); /* Thicker dashed line */
+            padding-bottom: 18px;
+            letter-spacing: 0.5px;
+        }
+
+        .command-category-panel ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .command-category-panel li {
+            background-color: rgba(255, 255, 255, 0.07); /* Slightly stronger background */
+            padding: 15px 20px; /* More padding */
+            margin-bottom: 12px; /* More margin */
+            border-radius: 8px;
+            font-family: var(--font-code);
+            color: var(--text-light);
+            border-left: 5px solid var(--primary-accent); /* Thicker accent border */
+            font-size: 1em;
+            line-height: 1.5;
+            overflow-wrap: break-word;
+            transition: background-color 0.2s ease;
+        }
+        .command-category-panel li:hover {
+            background-color: rgba(255, 255, 255, 0.1); /* Slight highlight on hover */
+        }
+
+        .command-category-panel li strong {
+            color: var(--primary-accent);
+        }
+
+        /* --- Specialized Sections (Shop, VIP, Gallery) --- */
+        .special-section {
+            background-color: var(--bg-dark-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 15px; /* More rounded */
+            box-shadow: 0 15px 40px var(--shadow-elevation-medium); /* Deeper shadow */
+            padding: 70px; /* More padding */
+            margin-top: 100px; /* More margin */
+            text-align: center;
+        }
+
+        .special-section h2 {
+            font-family: var(--font-heading);
+            color: var(--text-light);
+            font-size: 3.2em; /* Larger heading */
+            font-weight: 700;
+            margin-bottom: 40px; /* More space */
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+            letter-spacing: 1px;
+        }
+
+        .special-section p {
+            color: var(--text-muted);
+            font-size: 1.15em; /* Slightly larger paragraph */
+            max-width: 1000px;
+            margin: 0 auto 35px; /* More margin */
+            line-height: 1.7;
+        }
+
+        .special-section ul, .special-section ol {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+            max-width: 750px; /* Wider list */
+            margin: 0 auto 40px auto; /* More margin */
+        }
+
+        .special-section ul li, .special-section ol li {
+            background-color: rgba(255, 255, 255, 0.1); /* Stronger background */
+            padding: 18px 30px; /* More padding */
+            margin-bottom: 15px; /* More margin */
+            border-radius: 10px;
+            color: var(--text-light);
+            border-left: 6px solid var(--primary-accent); /* Thicker accent border */
+            font-size: 1.05em;
+            line-height: 1.6;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+        }
+        .special-section ul li:hover, .special-section ol li:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+            transform: translateX(5px); /* Slight shift on hover */
+        }
+
+        .special-section li strong {
+            color: var(--primary-accent);
+        }
+
+        .pickup-feature {
+            background-color: rgba(110, 136, 240, 0.2); /* Stronger accent tint */
+            border: 2px dashed var(--primary-accent); /* Thicker dashed border */
+            padding: 30px; /* More padding */
+            border-radius: 12px;
+            margin-top: 50px; /* More margin */
+            font-style: italic;
+            color: var(--text-light);
+            font-size: 1.1em;
+            line-height: 1.7;
+            max-width: 850px; /* Wider */
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+        }
+
+        .vip-tiers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Larger min-width */
+            gap: 35px; /* More spacing */
+            margin-top: 50px;
+            text-align: left;
+        }
+
+        .vip-tier-card {
+            background-color: var(--bg-dark-card);
+            border: 2px solid var(--primary-accent);
+            border-radius: 15px; /* More rounded */
+            padding: 35px; /* More padding */
+            box-shadow: 0 10px 25px var(--shadow-elevation-medium), inset 0 0 10px rgba(0,0,0,0.3); /* Deeper internal shadow */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s ease;
+        }
+        .vip-tier-card:hover {
+            transform: translateY(-10px); /* Lift on hover */
+            box-shadow: 0 18px 40px var(--shadow-elevation-high), inset 0 0 15px rgba(0,0,0,0.4);
+        }
+
+        .vip-tier-card h3 {
+            font-family: var(--font-heading);
+            color: var(--primary-accent);
+            font-size: 2em; /* Larger heading */
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 15px;
+            text-align: center;
+            letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(110, 136, 240, 0.4); /* Glow on heading */
+        }
+
+        .vip-tier-card .price {
+            font-family: var(--font-code);
+            font-size: 1.4em; /* Larger price */
+            color: var(--text-light);
+            text-align: center;
+            margin-bottom: 30px; /* More margin */
+            font-weight: 600;
+            background-color: rgba(0,0,0,0.2); /* Slight background for price */
+            padding: 8px 15px;
+            border-radius: 8px;
+            display: inline-block; /* To center background */
+            letter-spacing: 0.5px;
+        }
+
+        .vip-tier-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 30px 0; /* More margin below */
+            flex-grow: 1;
+        }
+
+        .vip-tier-card li {
+            margin-bottom: 12px; /* More margin */
+            padding-left: 30px; /* More space for checkmark */
+            position: relative;
+            color: var(--text-muted);
+            font-size: 1em;
+            line-height: 1.6;
+        }
+
+        .vip-tier-card li::before {
+            content: '✓';
+            color: #38C25B; /* Vibrant green checkmark */
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-weight: bold;
+            font-size: 1.2em; /* Larger checkmark */
+            text-shadow: 0 0 5px rgba(56, 194, 91, 0.5); /* Subtle glow on checkmark */
+        }
+
+        .vip-tier-card .cta-button {
+            width: 100%;
+            margin-top: auto;
+            font-size: 1.1em; /* Slightly larger button */
+            padding: 15px 0;
+        }
+
+        .gallery-status {
+            font-style: italic;
+            color: var(--text-muted);
+            margin-top: 30px; /* More margin */
+            font-size: 1.05em;
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            margin-top: auto;
+            padding: 50px 20px; /* More padding */
+            border-top: 1px solid var(--border-subtle);
+            color: var(--text-muted);
+            font-size: 0.9em; /* Slightly larger font */
+            background-color: var(--bg-dark-card);
+            position: relative; /* Needed for watermark positioning */
+        }
+
+        /* --- Watermark --- */
+        .watermark {
+            position: absolute;
+            bottom: 10px;
+            right: 15px;
+            font-family: var(--font-body);
+            font-size: 0.75em;
+            color: rgba(255, 255, 255, 0.1); /* Very subtle, almost transparent */
+            z-index: 999; /* Ensure it's above other footer content if any overlaps */
+            pointer-events: none; /* Make it non-interactive */
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5); /* A bit of shadow for legibility */
+        }
+
+        /* --- Responsive Adjustments --- */
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 5em;
+            }
+            .hero p {
+                font-size: 1.6em;
+            }
+            .section-title {
+                font-size: 3.2em;
+            }
+            .section-padding {
+                padding: 80px 40px;
+            }
+            .special-section {
+                padding: 50px 40px;
+            }
+            .hero-content {
+                padding: 30px 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav a {
+                margin: 0 15px;
+                font-size: 0.9em;
+            }
+            .hero {
+                height: 65vh;
+            }
+            .hero h1 {
+                font-size: 4em;
+            }
+            .hero p {
+                font-size: 1.4em;
+                margin-bottom: 40px;
+            }
+            .cta-buttons {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .cta-button {
+                width: 90%;
+                font-size: 1.2em;
+                padding: 18px 0;
+            }
+            .server-ip-display {
+                font-size: 1.2em;
+                padding: 15px 30px;
+            }
+            .section-padding {
+                padding: 60px 30px;
+            }
+            .section-title {
+                font-size: 2.8em;
+                margin-bottom: 50px;
+            }
+            .experiences-grid, .commands-list, .vip-tiers-grid {
+                grid-template-columns: 1fr;
+            }
+            .experience-card {
+                padding: 30px;
+            }
+            .experience-card h3 {
+                font-size: 1.6em;
+            }
+            .command-category-panel {
+                padding: 30px;
+            }
+            .command-category-panel h4 {
+                font-size: 1.3em;
+            }
+            .special-section {
+                padding: 40px 30px;
+            }
+            .special-section h2 {
+                font-size: 2.5em;
+            }
+            .special-section p {
+                font-size: 1.05em;
+            }
+            .vip-tier-card {
+                padding: 30px;
+            }
+            .vip-tier-card h3 {
+                font-size: 1.8em;
+            }
+            .vip-tier-card .price {
+                font-size: 1.3em;
+            }
+            .watermark {
+                font-size: 0.65em;
+                bottom: 5px;
+                right: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav a {
+                font-size: 0.8em;
+                margin: 0 6px;
+            }
+            .hero {
+                height: 55vh;
+            }
+            .hero h1 {
+                font-size: 3em;
+            }
+            .hero p {
+                font-size: 1.1em;
+            }
+            .server-ip-display {
+                font-size: 1.1em;
+                padding: 12px 25px;
+            }
+            .section-title {
+                font-size: 2.2em;
+            }
+            .experience-card .icon {
+                width: 70px;
+                height: 70px;
+                font-size: 2.8em;
+            }
+            .experience-card h3 {
+                font-size: 1.4em;
+            }
+            .vip-tier-card h3 {
+                font-size: 1.6em;
+            }
+            .vip-tier-card .price {
+                font-size: 1.1em;
+            }
+            .watermark {
+                font-size: 0.6em;
+                bottom: 3px;
+                right: 5px;
+            }
+        }
