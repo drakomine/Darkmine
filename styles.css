@@ -2,7 +2,7 @@
             --primary-accent: ; #8A63D2/* A richer, more vibrant blue/purple */
             --primary-accent-dark: #6C4FA8; /* Darker for hover */
             --bg-dark-main: #0A0A0A; /* Even darker, almost black */
-            --bg-dark-card: #151520; /* Slightly lighter for cards */
+            --bg-dark-card: #8A63D2; /* Slightly lighter for cards */
             --text-light: #E6E6E6;
             --text-muted: #999999;
             --border-subtle: #242424;
@@ -733,6 +733,7 @@
             }
 
         }
+
 
 
 
