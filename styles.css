@@ -1,11 +1,11 @@
 :root {
-            --primary-accent: #6E88F0; /* A richer, more vibrant blue/purple */
-            --primary-accent-dark: #586EC8; /* Darker for hover */
-            --bg-dark-main: #121212; /* Even darker, almost black */
-            --bg-dark-card: #1A1A1A; /* Slightly lighter for cards */
-            --text-light: #EDEDED;
-            --text-muted: #B0B0B0;
-            --border-subtle: #2C2C2C;
+            --primary-accent: #A8A9AD; /* A richer, more vibrant blue/purple */
+            --primary-accent-dark: #8E8F93; /* Darker for hover */
+            --bg-dark-main: #0A0A0A; /* Even darker, almost black */
+            --bg-dark-card: #151515; /* Slightly lighter for cards */
+            --text-light: #E6E6E6;
+            --text-muted: #999999;
+            --border-subtle: #242424;
             --shadow-elevation-low: rgba(0, 0, 0, 0.4);
             --shadow-elevation-medium: rgba(0, 0, 0, 0.6);
             --shadow-elevation-high: rgba(0, 0, 0, 0.8);
@@ -731,4 +731,5 @@
                 bottom: 3px;
                 right: 5px;
             }
+
         }
