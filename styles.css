@@ -1,6 +1,6 @@
 :root {
-            --primary-accent: ; #3e375b/* A richer, more vibrant blue/purple */
-            --primary-accent-dark: #4B004B; /* Darker for hover */
+            --primary-accent: ; #9b5de5/* A richer, more vibrant blue/purple */
+            --primary-accent-dark: #5a189a; /* Darker for hover */
             --bg-dark-main: #0A0A0A; /* Even darker, almost black */
             --bg-dark-card: #151520; /* Slightly lighter for cards */
             --text-light: #E6E6E6;
@@ -733,6 +733,7 @@
             }
 
         }
+
 
 
 
